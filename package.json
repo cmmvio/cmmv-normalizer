@@ -1,0 +1,101 @@
+{
+    "name": "@cmmv/normalizer",
+    "version": "0.0.1",
+    "description": "CMMV (@normalizer)",
+    "main": "./dist/cjs/index.js",
+    "module": "./dist/esm/index.js",
+    "types": "./dist/types/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/esm/index.js",
+            "require": "./dist/cjs/index.js"
+        }
+    },
+    "scripts": {
+        "build:cjs": "tsc --project tsconfig.cjs.json",
+        "build:esm": "tsc --project tsconfig.esm.json",
+        "build": "npm run build:cjs && npm run build:esm",
+        "test": "vitest",
+        "prepare": "husky",
+        "lint": "pnpm run lint:spec",
+        "lint:fix": "pnpm run lint:spec -- --fix",
+        "release": "node scripts/release.js",
+        "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+        "samples:processcontracts": "NODE_ENV=dev node -r @swc-node/register ./sample/processContracts.ts",
+        "samples:generatebigjson": "node -r @swc-node/register ./sample/generatebigjson.ts",
+        "samples:parsejson": "node -r @swc-node/register ./sample/parseJson.ts"
+    },
+    "keywords": [
+        "cmmv",
+        "framework",
+        "data",
+        "normalizer"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/andrehrferreira/cmmv-normalizer.git"
+    },
+    "author": "Andre Ferreira",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/andrehrferreira/cmmv-normalizer/issues"
+    },
+    "homepage": "https://cmmv.io",
+    "publishConfig": {
+        "access": "public"
+    },
+    "engines": {
+        "node": ">= 18.18.0 || >= 20.0.0"
+    },
+    "lint-staged": {
+        "**/*.ts": [
+            "prettier --ignore-path ./.prettierignore --write"
+        ],
+        "packages/**/*.json": [
+            "prettier --ignore-path ./.prettierignore --write"
+        ]
+    },
+    "devDependencies": {
+        "@cmmv/http": "^0.6.2",
+        "@cmmv/server": "^0.4.2",
+        "@commitlint/cli": "^19.6.0",
+        "@commitlint/config-angular": "^19.6.0",
+        "@commitlint/config-conventional": "^19.6.0",
+        "@faker-js/faker": "^9.2.0",
+        "@swc-node/core": "^1.13.3",
+        "@swc-node/register": "^1.10.9",
+        "@swc/core": "^1.9.3",
+        "@swc/helpers": "^0.5.15",
+        "@types/node": "^22.10.0",
+        "@types/stream-json": "^1.7.8",
+        "@typescript-eslint/eslint-plugin": "^8.16.0",
+        "@typescript-eslint/parser": "^8.16.0",
+        "chalk": "^5.3.0",
+        "conventional-changelog": "^6.0.0",
+        "conventional-changelog-cli": "^5.0.0",
+        "enquirer": "^2.4.1",
+        "esbuild": "^0.23.1",
+        "esbuild-register": "^3.6.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-import": "^2.31.0",
+        "execa": "^9.5.1",
+        "husky": "^9.1.7",
+        "lint-staged": "^15.2.10",
+        "prettier": "^3.4.1",
+        "release-it": "^17.10.0",
+        "semver": "^7.6.3",
+        "ts-node": "^10.9.2",
+        "tslib": "^2.8.1",
+        "typescript": "^5.7.2",
+        "vitest": "^2.1.6"
+    },
+    "dependencies": {
+        "@cmmv/core": "^0.6.2",
+        "@cmmv/encryptor": "^0.6.3",
+        "class-transformer": "^0.5.1",
+        "fast-json-stringify": "^6.0.0",
+        "mongodb": "^6.11.0",
+        "reflect-metadata": "^0.2.2",
+        "stream-json": "^1.9.1"
+    }
+}
