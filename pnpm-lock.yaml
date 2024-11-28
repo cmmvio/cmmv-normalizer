@@ -9,14 +9,17 @@ importers:
   .:
     dependencies:
       '@cmmv/core':
-        specifier: ^0.6.2
-        version: 0.6.2
+        specifier: ^0.6.4
+        version: 0.6.4
       '@cmmv/encryptor':
         specifier: ^0.6.3
         version: 0.6.3(typescript@5.7.2)
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
+      class-validator:
+        specifier: ^0.14.1
+        version: 0.14.1
       fast-json-stringify:
         specifier: ^6.0.0
         version: 6.0.0
@@ -31,14 +34,14 @@ importers:
         version: 1.9.1
     devDependencies:
       '@cmmv/http':
-        specifier: ^0.6.2
-        version: 0.6.2(typescript@5.7.2)
+        specifier: ^0.6.4
+        version: 0.6.4(typescript@5.7.2)
       '@cmmv/server':
         specifier: ^0.4.2
         version: 0.4.2
       '@commitlint/cli':
         specifier: ^19.6.0
-        version: 19.6.0(@types/node@22.10.0)(typescript@5.7.2)
+        version: 19.6.0(@types/node@22.10.1)(typescript@5.7.2)
       '@commitlint/config-angular':
         specifier: ^19.6.0
         version: 19.6.0
@@ -61,8 +64,8 @@ importers:
         specifier: ^0.5.15
         version: 0.5.15
       '@types/node':
-        specifier: ^22.10.0
-        version: 22.10.0
+        specifier: ^22.10.1
+        version: 22.10.1
       '@types/stream-json':
         specifier: ^1.7.8
         version: 1.7.8
@@ -116,7 +119,7 @@ importers:
         version: 7.6.3
       ts-node:
         specifier: ^10.9.2
-        version: 10.9.2(@swc/core@1.9.3(@swc/helpers@0.5.15))(@types/node@22.10.0)(typescript@5.7.2)
+        version: 10.9.2(@swc/core@1.9.3(@swc/helpers@0.5.15))(@types/node@22.10.1)(typescript@5.7.2)
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -125,7 +128,7 @@ importers:
         version: 5.7.2
       vitest:
         specifier: ^2.1.6
-        version: 2.1.6(@types/node@22.10.0)(jiti@1.21.6)(terser@5.36.0)(yaml@2.5.1)
+        version: 2.1.6(@types/node@22.10.1)(jiti@1.21.6)(terser@5.36.0)(yaml@2.5.1)
 
 packages:
 
@@ -171,8 +174,8 @@ packages:
   '@cmmv/cookie-parser@0.5.2':
     resolution: {integrity: sha512-xb0u7+24NsoJNzTjOQQwKAIuueN6YVsvJa/LZXMZlfHAgwEE476Uhai6L4rFcdz4UXtWZFqA5OhT8JFevxQsQA==}
 
-  '@cmmv/core@0.6.2':
-    resolution: {integrity: sha512-KIgVUrwTXC/2FyZFrBPqkzI5zm+ul/ykGs7BjRgsyv619HEIlNZ30/X4nbrlo/VPWmzjEKVnpl2TnirBacw6Rw==}
+  '@cmmv/core@0.6.4':
+    resolution: {integrity: sha512-+cL/xljkhSGgY2bV5HboDoWd3xO8hjV3ZKRxJwX6BaqXU6M1SW8nWCWSZtilPIqKjdnkgGhBC63EgqlF/R+8Og==}
 
   '@cmmv/cors@0.5.2':
     resolution: {integrity: sha512-sIvtcAS7/4FhrI65txfUZMLZ5TAN3y9MINBrSblclLOXM68xnfo8q2Tstz/vFKh13mbtPZCnbSQFVkOVQLunsA==}
@@ -187,11 +190,11 @@ packages:
   '@cmmv/helmet@0.5.2':
     resolution: {integrity: sha512-1s1yBqYOMXqDNLg8kszGWd+wc1B9KJ9Ar9xiNK1WdHWnBC5DwwITE1mzN2wNmEwct64/SqtRpYDP7xXf2G58Eg==}
 
-  '@cmmv/http@0.6.2':
-    resolution: {integrity: sha512-1iprTsByAvACR5JS1OO6kkuo6RvoG12hL76gz2QEpMYhAVay4pHJnWKsExpe+bRbyboYHDKtmsqcgaZfET20Ug==}
+  '@cmmv/http@0.6.4':
+    resolution: {integrity: sha512-2Dei2/gR4hlDGoBady3B/25bnG8tmDTm09LShHMU8ptzKjkhVN4RfQdBbQhg8gqND0GuVz2M4sM7l9cLra5plg==}
 
-  '@cmmv/protobuf@0.6.2':
-    resolution: {integrity: sha512-CPCcEmL6BCP5dUN94xUjNFFimxdTpRdqCIxv+cmIfjQr+9/2pNzVAV9zU5ektdI9LD9mCiRb03zIVd20Wr9qpA==}
+  '@cmmv/protobuf@0.6.4':
+    resolution: {integrity: sha512-DyIOH9SjySHeUhhcMj4bqG5zprVNcMD3xswrxSKuN0F1D4JAap4LhjKZU3PbljinG6gAK9bqCTBy2OUy/bi1bg==}
 
   '@cmmv/reactivity@0.4.7':
     resolution: {integrity: sha512-vs+haBKgZO8MbLja1JluwUDuyo5F3GXZehCZaoFy2JLhRoyev/izWylnBG35J7j4LgnNjADL/2sgeBuffNI+pA==}
@@ -208,8 +211,8 @@ packages:
   '@cmmv/server@0.5.2':
     resolution: {integrity: sha512-CyFT9UQoia1nicIQIyGHXFvQPIyC1JDcqGOU8BS6SWBxiAsHPxNj+z5MDQyr11RDArJvGhV3OfAURfHe24qtXA==}
 
-  '@cmmv/view@0.6.2':
-    resolution: {integrity: sha512-YvIt2+v58kAS3VWx/3t3Q1SPjcWj0GOEf6YKmXq9mXTGC5Ux1EJVATlj8OcCwsCS7aij8ADo3PhiSKUSC1lS+w==}
+  '@cmmv/view@0.6.4':
+    resolution: {integrity: sha512-PyROvx3fiwM+AfQqmMmarnmqc++wplTmAgIbFmKY1pK9w0Rq1JwvcHG+GiEBaOMoAW9xMpQhn2SLArOCe2FPvQ==}
 
   '@commitlint/cli@19.6.0':
     resolution: {integrity: sha512-v17BgGD9w5KnthaKxXnEg6KLq6DYiAxyiN44TpiRtqyW8NSq+Kx99mkEG8Qo6uu6cI5eMzMojW2muJxjmPnF8w==}
@@ -1155,8 +1158,8 @@ packages:
   '@types/json5@0.0.29':
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
 
-  '@types/node@22.10.0':
-    resolution: {integrity: sha512-XC70cRZVElFHfIUB40FgZOBbgJYFKKMa5nb9lxcwYstFG/Mi+/Y0bGS+rs6Dmhmkpq4pnNiLiuZAbc02YCOnmA==}
+  '@types/node@22.10.1':
+    resolution: {integrity: sha512-qKgsUwfHZV2WCWLAnVP1JqnpE6Im6h3Y0+fYgMTasNQ7V++CBX5OT1as0g0f+OyubbFqhf6XVNIsmN4IIhEgGQ==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -3875,8 +3878,8 @@ packages:
     resolution: {integrity: sha512-vqlC04+RQoFalODCbCumG2xIOvapzVMHwsyIGM/SIE8fRhFFsXeH8/QQ+s0T0kDAhKc4k30s73/0ydkHQz6HlQ==}
     engines: {node: '>= 0.4'}
 
-  registry-auth-token@5.0.2:
-    resolution: {integrity: sha512-o/3ikDxtXaA59BmZuZrJZDJv8NMDGSj+6j6XaeBmHw8eY1i1qd9+6H+LjVvQXx3HN6aRCGa1cUdJ9RaJZUugnQ==}
+  registry-auth-token@5.0.3:
+    resolution: {integrity: sha512-1bpc9IyC+e+CNFRaWyn77tk4xGG4PPUyfakSmA6F6cvUDjrm58dfyJ3II+9yb10EDkHoy1LaPSmHaWLOH3m6HA==}
     engines: {node: '>=14'}
 
   registry-url@6.0.1:
@@ -4821,7 +4824,7 @@ snapshots:
       on-headers: 1.0.2
       vary: 1.1.2
 
-  '@cmmv/core@0.6.2':
+  '@cmmv/core@0.6.4':
     dependencies:
       class-transformer: 0.5.1
       class-validator: 0.14.1
@@ -4858,7 +4861,7 @@ snapshots:
     dependencies:
       helmet: 8.0.0
 
-  '@cmmv/http@0.6.2(typescript@5.7.2)':
+  '@cmmv/http@0.6.4(typescript@5.7.2)':
     dependencies:
       '@cmmv/body-parser': 0.5.2
       '@cmmv/compression': 0.5.2
@@ -4869,7 +4872,7 @@ snapshots:
       '@cmmv/reactivity': 0.4.7
       '@cmmv/server': 0.5.2
       '@cmmv/server-static': 0.5.2
-      '@cmmv/view': 0.6.2(typescript@5.7.2)
+      '@cmmv/view': 0.6.4(typescript@5.7.2)
       '@fastify/compress': 7.0.3
       '@fastify/cors': 9.0.1
       '@fastify/formbody': 7.4.0
@@ -4895,7 +4898,7 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@cmmv/protobuf@0.6.2':
+  '@cmmv/protobuf@0.6.4':
     dependencies:
       fast-glob: 3.3.2
       protobufjs: 7.4.0
@@ -4997,9 +5000,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@cmmv/view@0.6.2(typescript@5.7.2)':
+  '@cmmv/view@0.6.4(typescript@5.7.2)':
     dependencies:
-      '@cmmv/protobuf': 0.6.2
+      '@cmmv/protobuf': 0.6.4
       '@cmmv/reactivity': 0.4.7
       fast-glob: 3.3.2
       html-minifier-terser: 7.2.0
@@ -5012,11 +5015,11 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@commitlint/cli@19.6.0(@types/node@22.10.0)(typescript@5.7.2)':
+  '@commitlint/cli@19.6.0(@types/node@22.10.1)(typescript@5.7.2)':
     dependencies:
       '@commitlint/format': 19.5.0
       '@commitlint/lint': 19.6.0
-      '@commitlint/load': 19.5.0(@types/node@22.10.0)(typescript@5.7.2)
+      '@commitlint/load': 19.5.0(@types/node@22.10.1)(typescript@5.7.2)
       '@commitlint/read': 19.5.0
       '@commitlint/types': 19.5.0
       tinyexec: 0.3.1
@@ -5069,7 +5072,7 @@ snapshots:
       '@commitlint/rules': 19.6.0
       '@commitlint/types': 19.5.0
 
-  '@commitlint/load@19.5.0(@types/node@22.10.0)(typescript@5.7.2)':
+  '@commitlint/load@19.5.0(@types/node@22.10.1)(typescript@5.7.2)':
     dependencies:
       '@commitlint/config-validator': 19.5.0
       '@commitlint/execute-rule': 19.5.0
@@ -5077,7 +5080,7 @@ snapshots:
       '@commitlint/types': 19.5.0
       chalk: 5.3.0
       cosmiconfig: 9.0.0(typescript@5.7.2)
-      cosmiconfig-typescript-loader: 5.1.0(@types/node@22.10.0)(cosmiconfig@9.0.0(typescript@5.7.2))(typescript@5.7.2)
+      cosmiconfig-typescript-loader: 5.1.0(@types/node@22.10.1)(cosmiconfig@9.0.0(typescript@5.7.2))(typescript@5.7.2)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -5807,7 +5810,7 @@ snapshots:
 
   '@types/conventional-commits-parser@5.0.1':
     dependencies:
-      '@types/node': 22.10.0
+      '@types/node': 22.10.1
 
   '@types/estree@1.0.6': {}
 
@@ -5815,7 +5818,7 @@ snapshots:
 
   '@types/json5@0.0.29': {}
 
-  '@types/node@22.10.0':
+  '@types/node@22.10.1':
     dependencies:
       undici-types: 6.20.0
 
@@ -5825,11 +5828,11 @@ snapshots:
 
   '@types/stream-chain@2.1.0':
     dependencies:
-      '@types/node': 22.10.0
+      '@types/node': 22.10.1
 
   '@types/stream-json@1.7.8':
     dependencies:
-      '@types/node': 22.10.0
+      '@types/node': 22.10.1
       '@types/stream-chain': 2.1.0
 
   '@types/validator@13.12.2': {}
@@ -5929,13 +5932,13 @@ snapshots:
       chai: 5.1.2
       tinyrainbow: 1.2.0
 
-  '@vitest/mocker@2.1.6(vite@6.0.1(@types/node@22.10.0)(jiti@1.21.6)(terser@5.36.0)(yaml@2.5.1))':
+  '@vitest/mocker@2.1.6(vite@6.0.1(@types/node@22.10.1)(jiti@1.21.6)(terser@5.36.0)(yaml@2.5.1))':
     dependencies:
       '@vitest/spy': 2.1.6
       estree-walker: 3.0.3
       magic-string: 0.30.14
     optionalDependencies:
-      vite: 6.0.1(@types/node@22.10.0)(jiti@1.21.6)(terser@5.36.0)(yaml@2.5.1)
+      vite: 6.0.1(@types/node@22.10.1)(jiti@1.21.6)(terser@5.36.0)(yaml@2.5.1)
 
   '@vitest/pretty-format@2.1.6':
     dependencies:
@@ -6714,9 +6717,9 @@ snapshots:
       object-assign: 4.1.1
       vary: 1.1.2
 
-  cosmiconfig-typescript-loader@5.1.0(@types/node@22.10.0)(cosmiconfig@9.0.0(typescript@5.7.2))(typescript@5.7.2):
+  cosmiconfig-typescript-loader@5.1.0(@types/node@22.10.1)(cosmiconfig@9.0.0(typescript@5.7.2))(typescript@5.7.2):
     dependencies:
-      '@types/node': 22.10.0
+      '@types/node': 22.10.1
       cosmiconfig: 9.0.0(typescript@5.7.2)
       jiti: 1.21.6
       typescript: 5.7.2
@@ -8622,7 +8625,7 @@ snapshots:
   package-json@10.0.1:
     dependencies:
       ky: 1.7.2
-      registry-auth-token: 5.0.2
+      registry-auth-token: 5.0.3
       registry-url: 6.0.1
       semver: 7.6.3
 
@@ -8770,7 +8773,7 @@ snapshots:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 22.10.0
+      '@types/node': 22.10.1
       long: 5.2.3
 
   protocols@2.0.1: {}
@@ -8932,7 +8935,7 @@ snapshots:
       es-errors: 1.3.0
       set-function-name: 2.0.2
 
-  registry-auth-token@5.0.2:
+  registry-auth-token@5.0.3:
     dependencies:
       '@pnpm/npm-conf': 2.3.1
 
@@ -9492,14 +9495,14 @@ snapshots:
     dependencies:
       typescript: 5.7.2
 
-  ts-node@10.9.2(@swc/core@1.9.3(@swc/helpers@0.5.15))(@types/node@22.10.0)(typescript@5.7.2):
+  ts-node@10.9.2(@swc/core@1.9.3(@swc/helpers@0.5.15))(@types/node@22.10.1)(typescript@5.7.2):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 22.10.0
+      '@types/node': 22.10.1
       acorn: 8.14.0
       acorn-walk: 8.3.4
       arg: 4.1.3
@@ -9670,13 +9673,13 @@ snapshots:
 
   vary@1.1.2: {}
 
-  vite-node@2.1.6(@types/node@22.10.0)(jiti@1.21.6)(terser@5.36.0)(yaml@2.5.1):
+  vite-node@2.1.6(@types/node@22.10.1)(jiti@1.21.6)(terser@5.36.0)(yaml@2.5.1):
     dependencies:
       cac: 6.7.14
       debug: 4.3.7
       es-module-lexer: 1.5.4
       pathe: 1.1.2
-      vite: 6.0.1(@types/node@22.10.0)(jiti@1.21.6)(terser@5.36.0)(yaml@2.5.1)
+      vite: 6.0.1(@types/node@22.10.1)(jiti@1.21.6)(terser@5.36.0)(yaml@2.5.1)
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -9691,22 +9694,22 @@ snapshots:
       - tsx
       - yaml
 
-  vite@6.0.1(@types/node@22.10.0)(jiti@1.21.6)(terser@5.36.0)(yaml@2.5.1):
+  vite@6.0.1(@types/node@22.10.1)(jiti@1.21.6)(terser@5.36.0)(yaml@2.5.1):
     dependencies:
       esbuild: 0.24.0
       postcss: 8.4.49
       rollup: 4.27.4
     optionalDependencies:
-      '@types/node': 22.10.0
+      '@types/node': 22.10.1
       fsevents: 2.3.3
       jiti: 1.21.6
       terser: 5.36.0
       yaml: 2.5.1
 
-  vitest@2.1.6(@types/node@22.10.0)(jiti@1.21.6)(terser@5.36.0)(yaml@2.5.1):
+  vitest@2.1.6(@types/node@22.10.1)(jiti@1.21.6)(terser@5.36.0)(yaml@2.5.1):
     dependencies:
       '@vitest/expect': 2.1.6
-      '@vitest/mocker': 2.1.6(vite@6.0.1(@types/node@22.10.0)(jiti@1.21.6)(terser@5.36.0)(yaml@2.5.1))
+      '@vitest/mocker': 2.1.6(vite@6.0.1(@types/node@22.10.1)(jiti@1.21.6)(terser@5.36.0)(yaml@2.5.1))
       '@vitest/pretty-format': 2.1.6
       '@vitest/runner': 2.1.6
       '@vitest/snapshot': 2.1.6
@@ -9722,11 +9725,11 @@ snapshots:
       tinyexec: 0.3.1
       tinypool: 1.0.2
       tinyrainbow: 1.2.0
-      vite: 6.0.1(@types/node@22.10.0)(jiti@1.21.6)(terser@5.36.0)(yaml@2.5.1)
-      vite-node: 2.1.6(@types/node@22.10.0)(jiti@1.21.6)(terser@5.36.0)(yaml@2.5.1)
+      vite: 6.0.1(@types/node@22.10.1)(jiti@1.21.6)(terser@5.36.0)(yaml@2.5.1)
+      vite-node: 2.1.6(@types/node@22.10.1)(jiti@1.21.6)(terser@5.36.0)(yaml@2.5.1)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@types/node': 22.10.0
+      '@types/node': 22.10.1
     transitivePeerDependencies:
       - jiti
       - less

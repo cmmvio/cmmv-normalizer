@@ -53,4 +53,4 @@ old
 packages/**/*.js
 packages/**/*.d.ts
 packages/session/
-sample
+/src/models/*.ts

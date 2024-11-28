@@ -1,4 +1,6 @@
 import { EventEmitter } from 'node:events';
+import { validate } from 'class-validator';
+import { plainToClass } from 'class-transformer';
 import { ParserOptions } from '../interfaces';
 
 export abstract class AbstractParser extends EventEmitter {
@@ -26,7 +28,7 @@ export abstract class AbstractParser extends EventEmitter {
      * @param rawData The raw data object to parse and transform.
      * @returns The transformed object or null if validation fails.
      */
-    public parser(rawData: any): any {
+    public async parser(rawData: any): Promise<any> {
         const schema = new this.options.schema();
 
         if (!schema) throw new Error('Schema is required to parse data.');
@@ -53,7 +55,51 @@ export abstract class AbstractParser extends EventEmitter {
             else result[fieldName] = value;
         }
 
+        if (this.options.model) {
+            let newObject: any = plainToClass(this.options.model, result, {
+                excludeExtraneousValues: true,
+                exposeUnsetFields: false,
+                enableImplicitConversion: true,
+            });
+
+            newObject = this.removeUndefinedWithConstructor(
+                newObject,
+                this.options.model,
+            );
+
+            const errors = await validate(newObject, {
+                forbidUnknownValues: false,
+                skipMissingProperties: true,
+                stopAtFirstError: true,
+            });
+
+            if (errors.length > 0) throw new Error(errors[0].toString());
+
+            return newObject;
+        }
+
         return result;
+    }
+
+    /**
+     * Removes undefined values from an object.
+     *
+     * @param obj The object to clean up.
+     * @returns A new object with undefined values removed.
+     */
+    private removeUndefinedWithConstructor<T>(
+        obj: T,
+        Constructor: new (partial: Partial<T>) => T,
+    ): T {
+        const cleanObj = Object.keys(obj).reduce((acc, key) => {
+            const value = obj[key as keyof T];
+            if (value !== undefined) {
+                (acc as any)[key] = value;
+            }
+            return acc;
+        }, {} as Partial<T>);
+
+        return new Constructor(cleanObj);
     }
 
     /**
@@ -63,7 +109,7 @@ export abstract class AbstractParser extends EventEmitter {
      * @returns The final processed result after all pipes.
      */
     public async processData(data: any): Promise<any> {
-        let result = this.parser(data);
+        let result = await this.parser(data);
 
         for (const pipe of this.pipes) {
             if (typeof pipe === 'function') result = await pipe(result);

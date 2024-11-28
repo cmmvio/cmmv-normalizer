@@ -1,7 +1,7 @@
 // Generated automatically by CMMV
 
 import * as fastJson from 'fast-json-stringify';
-import { Expose, Transform } from 'class-transformer';
+import { Expose, Type } from 'class-transformer';
 
 export interface ICustomers {
     id?: any;
@@ -11,9 +11,7 @@ export interface ICustomers {
 }
 
 export class Customers implements ICustomers {
-    @Transform(({ value }) => (value !== undefined ? value : null), {
-        toClassOnly: true,
-    })
+    @Expose()
     id?: any;
 
     @Expose()
@@ -23,6 +21,7 @@ export class Customers implements ICustomers {
     phone: string;
 
     @Expose()
+    @Type(() => Date)
     createdAt: string;
 
     constructor(partial: Partial<Customers>) {
