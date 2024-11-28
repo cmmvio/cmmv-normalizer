@@ -1,10 +1,11 @@
 import { EventEmitter } from 'node:events';
 import { validate } from 'class-validator';
 import { plainToClass } from 'class-transformer';
-import { ParserOptions } from '../interfaces';
+import { ParserOptions, XMLParserOptions } from '../interfaces';
+import { ObjectId } from 'mongodb';
 
 export abstract class AbstractParser extends EventEmitter {
-    protected options: ParserOptions;
+    protected options: ParserOptions | XMLParserOptions;
     protected pipes: Array<(data: any) => any | Promise<any>> = [];
 
     constructor() {
@@ -35,20 +36,27 @@ export abstract class AbstractParser extends EventEmitter {
 
         const result: Record<string, any> = {};
 
+        for (const key in rawData) rawData[key.toLowerCase()] = rawData[key];
+
         for (const [fieldName, fieldOptions] of Object.entries(schema.field)) {
             const { to, validation, transform } = fieldOptions;
 
-            let value = rawData[fieldName];
+            let value = rawData[fieldName.toLowerCase()];
 
-            if (transform && Array.isArray(transform)) {
-                for (const transformer of transform) value = transformer(value);
-            }
+            if (value !== undefined && value !== null) {
+                if (transform && Array.isArray(transform)) {
+                    for (const transformer of transform)
+                        value = transformer(value);
+                }
 
-            if (validation && !validation.test(value)) {
-                console.warn(
-                    `Validation failed for field "${fieldName}" with value "${value}".`,
-                );
-                return null;
+                if (validation && !validation.test(value)) {
+                    console.warn(
+                        `Validation failed for field "${fieldName}" with value "${value}".`,
+                    );
+                    return null;
+                }
+            } else {
+                value = null;
             }
 
             if (to) result[to] = value;
@@ -66,6 +74,11 @@ export abstract class AbstractParser extends EventEmitter {
                 newObject,
                 this.options.model,
             );
+
+            for (const key in result) {
+                if (result[key] instanceof ObjectId)
+                    newObject[key] = result[key];
+            }
 
             const errors = await validate(newObject, {
                 forbidUnknownValues: false,
@@ -124,6 +137,10 @@ export abstract class AbstractParser extends EventEmitter {
      */
     public finalize(): void {
         this.emit('end');
+    }
+
+    public error(error: any): void {
+        this.emit('erro', error);
     }
 
     /**

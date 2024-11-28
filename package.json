@@ -21,9 +21,11 @@
         "lint:fix": "pnpm run lint:spec -- --fix",
         "release": "node scripts/release.js",
         "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-        "samples:processcontracts": "NODE_ENV=dev node -r @swc-node/register ./sample/processContracts.ts",
-        "samples:generatebigjson": "node -r @swc-node/register ./sample/generatebigjson.ts",
-        "samples:parsejson": "node -r @swc-node/register ./sample/parseJson.ts"
+        "processcontracts": "NODE_ENV=dev node -r @swc-node/register ./sample/processContracts.ts",
+        "generate:json": "node -r @swc-node/register ./sample/generatebigjson.ts",
+        "generate:xml": "node -r @swc-node/register ./sample/generateBigXML.ts",
+        "parser:json": "node -r @swc-node/register ./sample/parseJson.ts",
+        "parser:xml": "node -r @swc-node/register ./sample/parseXML.ts"
     },
     "keywords": [
         "cmmv",
@@ -56,8 +58,8 @@
         ]
     },
     "devDependencies": {
-        "@cmmv/http": "^0.6.4",
-        "@cmmv/server": "^0.4.2",
+        "@cmmv/http": "^0.6.5",
+        "@cmmv/server": "^0.6.3",
         "@commitlint/cli": "^19.6.0",
         "@commitlint/config-angular": "^19.6.0",
         "@commitlint/config-conventional": "^19.6.0",
@@ -67,6 +69,7 @@
         "@swc/core": "^1.9.3",
         "@swc/helpers": "^0.5.15",
         "@types/node": "^22.10.1",
+        "@types/sax": "^1.2.7",
         "@types/stream-json": "^1.7.8",
         "@typescript-eslint/eslint-plugin": "^8.16.0",
         "@typescript-eslint/parser": "^8.16.0",
@@ -90,13 +93,14 @@
         "vitest": "^2.1.6"
     },
     "dependencies": {
-        "@cmmv/core": "^0.6.4",
+        "@cmmv/core": "^0.6.5",
         "@cmmv/encryptor": "^0.6.3",
         "class-transformer": "^0.5.1",
         "class-validator": "^0.14.1",
         "fast-json-stringify": "^6.0.0",
         "mongodb": "^6.11.0",
         "reflect-metadata": "^0.2.2",
+        "sax": "^1.4.1",
         "stream-json": "^1.9.1"
     }
 }

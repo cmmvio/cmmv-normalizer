@@ -1,7 +1,7 @@
 // Generated automatically by CMMV
 
 import * as fastJson from 'fast-json-stringify';
-import { Expose, Type } from 'class-transformer';
+import { Expose, instanceToPlain, Type } from 'class-transformer';
 
 export interface ICustomers {
     id?: any;
@@ -27,10 +27,18 @@ export class Customers implements ICustomers {
     constructor(partial: Partial<Customers>) {
         Object.assign(this, partial);
     }
+
+    public serialize() {
+        return instanceToPlain(this);
+    }
+
+    public toString() {
+        return CustomersFastSchema(this);
+    }
 }
 
 // Schema for fast-json-stringify
-export const CustomersSchema = fastJson({
+export const CustomersFastSchema = fastJson({
     title: 'Customers Schema',
     type: 'object',
     properties: {

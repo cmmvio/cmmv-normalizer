@@ -1,10 +1,11 @@
 import {
-    JSONParser,
+    XMLParser,
     AbstractParserSchema,
     ToLowerCase,
     Tokenizer,
     ToDate,
     ToObjectId,
+    ToInt,
 } from '../src';
 
 import { CustomersContract } from './customers.contract';
@@ -21,7 +22,7 @@ class CustomerParserSchema extends AbstractParserSchema {
     public field = {
         id: {
             to: 'id',
-            transform: [ToObjectId],
+            transform: [ToInt, ToObjectId],
         },
         name: { to: 'name' },
         email: {
@@ -40,13 +41,14 @@ class CustomerParserSchema extends AbstractParserSchema {
     };
 }
 
-new JSONParser({
+new XMLParser({
     contract: CustomersContract,
     schema: CustomerParserSchema,
     model: Customers,
-    input: './sample/large-customers.json',
+    input: './sample/large-customers.xml',
+    nodeName: 'customer',
 })
-    .pipe(async data => {
+    .pipe(async (data: Customers) => {
         console.log(data);
     })
     .once('end', () => console.log('End process!'))

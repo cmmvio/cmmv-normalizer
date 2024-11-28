@@ -17,14 +17,12 @@ export class JSONParser extends AbstractParser {
             const readStream = fs.createReadStream(
                 path.resolve(this.options.input),
             );
-
             const jsonStream = readStream.pipe(parser()).pipe(streamArray());
-
             jsonStream.on('data', ({ value }) =>
                 this.processData.call(this, value),
             );
-
             jsonStream.on('end', this.finalize.bind(this));
+            jsonStream.on('error', error => this.error.bind(this, error));
         }
     }
 }
