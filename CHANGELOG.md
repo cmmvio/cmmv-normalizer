@@ -1,3 +1,12 @@
+## [0.0.4](https://github.com/andrehrferreira/cmmv-normalizer/compare/v0.0.3...v0.0.4) (2024-11-28)
+
+
+### Bug Fixes
+
+* readme ([09b4335](https://github.com/andrehrferreira/cmmv-normalizer/commit/09b4335823e10df19bf3cd065fbb30d986d24d3d))
+
+
+
 ## [0.0.3](https://github.com/andrehrferreira/cmmv-normalizer/compare/v0.0.2...v0.0.3) (2024-11-28)
 
 
