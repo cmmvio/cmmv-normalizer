@@ -24,8 +24,10 @@
         "processcontracts": "NODE_ENV=dev node -r @swc-node/register ./sample/processContracts.ts",
         "generate:json": "node -r @swc-node/register ./sample/generatebigjson.ts",
         "generate:xml": "node -r @swc-node/register ./sample/generateBigXML.ts",
-        "parser:json": "node -r @swc-node/register ./sample/parseJson.ts",
-        "parser:xml": "node -r @swc-node/register ./sample/parseXML.ts"
+        "generate:yaml": "node -r @swc-node/register ./sample/generateBigYAML.ts",
+        "parser:json": "node -r @swc-node/register ./sample/parserJson.ts",
+        "parser:xml": "node -r @swc-node/register ./sample/parserXML.ts",
+        "parser:yaml": "node -r @swc-node/register ./sample/parserYAML.ts"
     },
     "keywords": [
         "cmmv",
@@ -101,6 +103,7 @@
         "mongodb": "^6.11.0",
         "reflect-metadata": "^0.2.2",
         "sax": "^1.4.1",
-        "stream-json": "^1.9.1"
+        "stream-json": "^1.9.1",
+        "yaml": "^2.6.1"
     }
 }
