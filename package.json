@@ -19,7 +19,7 @@
         "prepare": "husky",
         "lint": "pnpm run lint:spec",
         "lint:fix": "pnpm run lint:spec -- --fix",
-        "release": "node scripts/release.js",
+        "release": "npm run build && node scripts/release.js",
         "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
         "processcontracts": "NODE_ENV=dev node -r @swc-node/register ./sample/processContracts.ts",
         "generate:json": "node -r @swc-node/register ./sample/generatebigjson.ts",
