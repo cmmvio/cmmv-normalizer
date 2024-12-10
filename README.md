@@ -40,7 +40,11 @@ $ pnpm add @cmmv/normalizer
 Below is an example of parsing and normalizing a JSON file with a custom schema:
 
 ```typescript
-import { JSONParser, AbstractParserSchema, ToLowerCase, Tokenizer, ToDate, ToObjectId } from '@cmmv/normalizer';
+import { 
+    JSONParser, AbstractParserSchema, 
+    ToLowerCase, Tokenizer, ToDate, ToObjectId 
+} from '@cmmv/normalizer';
+
 import { ECKeys } from '@cmmv/encryptor';
 
 const keys = ECKeys.generateKeys();
