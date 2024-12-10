@@ -1,3 +1,12 @@
+## [0.0.5](https://github.com/andrehrferreira/cmmv-normalizer/compare/v0.0.4...v0.0.5) (2024-12-10)
+
+
+### Bug Fixes
+
+* package, readme ([1d6ad29](https://github.com/andrehrferreira/cmmv-normalizer/commit/1d6ad295665323f01f7b5b8a6c119e20db018047))
+
+
+
 ## [0.0.4](https://github.com/andrehrferreira/cmmv-normalizer/compare/v0.0.3...v0.0.4) (2024-11-28)
 
 
