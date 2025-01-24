@@ -1,6 +1,6 @@
 {
     "name": "@cmmv/normalizer",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "Schema-based data normalization module for CMMV",
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
@@ -37,12 +37,12 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/andrehrferreira/cmmv-normalizer.git"
+        "url": "git+https://github.com/cmmvio/cmmv-normalizer.git"
     },
     "author": "Andre Ferreira",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/andrehrferreira/cmmv-normalizer/issues"
+        "url": "https://github.com/cmmvio/cmmv-normalizer/issues"
     },
     "homepage": "https://cmmv.io",
     "publishConfig": {
