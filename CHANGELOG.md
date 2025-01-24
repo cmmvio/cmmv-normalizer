@@ -1,3 +1,12 @@
+## [0.0.6](https://github.com/cmmvio/cmmv-normalizer/compare/v0.0.5...v0.0.6) (2025-01-24)
+
+
+### Bug Fixes
+
+* repository ([56c6fef](https://github.com/cmmvio/cmmv-normalizer/commit/56c6fef89e4bf59b0905b95c5e44935d274280d3))
+
+
+
 ## [0.0.5](https://github.com/cmmvio/cmmv-normalizer/compare/v0.0.4...v0.0.5) (2024-12-10)
 
 
