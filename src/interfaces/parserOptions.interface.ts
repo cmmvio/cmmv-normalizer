@@ -8,6 +8,11 @@ export interface ParserOptions {
     input: string;
 }
 
+export interface ParserBufferOptions {
+    schema: new () => AbstractParserSchema;
+    model?: new (...args: any[]) => any;
+}
+
 export interface XMLParserOptions {
     contract: new () => AbstractContract;
     schema: new () => AbstractParserSchema;
