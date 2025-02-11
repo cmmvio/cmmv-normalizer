@@ -1,6 +1,6 @@
 {
     "name": "@cmmv/normalizer",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "description": "Schema-based data normalization module for CMMV",
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
@@ -19,7 +19,7 @@
         "prepare": "husky",
         "lint": "pnpm run lint:spec",
         "lint:fix": "pnpm run lint:spec -- --fix",
-        "release": "pnpm run build && node scripts/release.js",
+        "release": "pnpm run build && node release.js",
         "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
         "processcontracts": "NODE_ENV=dev node -r @swc-node/register ./sample/processContracts.ts",
         "generate:json": "node -r @swc-node/register ./sample/generatebigjson.ts",

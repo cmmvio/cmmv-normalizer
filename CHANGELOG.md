@@ -1,3 +1,12 @@
+## [0.0.7](https://github.com/cmmvio/cmmv-normalizer/compare/v0.0.6...v0.0.7) (2025-02-11)
+
+
+### Bug Fixes
+
+* buffer parser ([421c63b](https://github.com/cmmvio/cmmv-normalizer/commit/421c63b7f1ddc78a5e52df62e443d93a2ae85f5b))
+
+
+
 ## [0.0.6](https://github.com/cmmvio/cmmv-normalizer/compare/v0.0.5...v0.0.6) (2025-01-24)
 
 

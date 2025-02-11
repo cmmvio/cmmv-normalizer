@@ -4,16 +4,19 @@ import { parser } from 'stream-json';
 import { streamArray } from 'stream-json/streamers/StreamArray';
 
 import { AbstractParser } from '../abstracts';
-import { ParserOptions } from '../interfaces';
+
+import { ParserOptions, ParserBufferOptions } from '../interfaces';
 
 export class JSONParser extends AbstractParser {
-    constructor(options?: ParserOptions) {
-        super();
-        this.options = options;
+    constructor(options?: ParserOptions | ParserBufferOptions) {
+        super(options);
     }
 
     public override start() {
-        if (fs.existsSync(path.resolve(this.options.input))) {
+        if (
+            'input' in this.options &&
+            fs.existsSync(path.resolve(this.options.input))
+        ) {
             const readStream = fs.createReadStream(
                 path.resolve(this.options.input),
             );

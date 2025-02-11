@@ -1,16 +1,16 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+
 import { createReadStream } from 'node:fs';
 import { SAXParser } from 'sax';
 import { AbstractParser } from '../abstracts';
-import { XMLParserOptions } from '../interfaces';
+import { XMLParserOptions, ParserBufferOptions } from '../interfaces';
 
 export class XMLParser extends AbstractParser {
     declare protected options: XMLParserOptions;
 
-    constructor(options?: XMLParserOptions) {
-        super();
-        this.options = options;
+    constructor(options?: XMLParserOptions | ParserBufferOptions) {
+        super(options);
     }
 
     public override start() {
@@ -53,7 +53,6 @@ export class XMLParser extends AbstractParser {
                 this.finalize.call(this);
             };
 
-            // Handle errors
             saxParser.onerror = err => {
                 this.error.call(this, err);
                 saxParser.resume();

@@ -1,15 +1,27 @@
 import { EventEmitter } from 'node:events';
 import { validate } from 'class-validator';
 import { plainToClass } from 'class-transformer';
-import { ParserOptions, XMLParserOptions } from '../interfaces';
 import { ObjectId } from 'mongodb';
 
-export abstract class AbstractParser extends EventEmitter {
-    protected options: ParserOptions | XMLParserOptions;
-    protected pipes: Array<(data: any) => any | Promise<any>> = [];
+import {
+    ParserOptions,
+    XMLParserOptions,
+    ParserBufferOptions,
+} from '../interfaces';
 
-    constructor() {
+import { AbstractParserSchema } from './parserSchema.abstract';
+
+export abstract class AbstractParser extends EventEmitter {
+    protected options: ParserOptions | XMLParserOptions | ParserBufferOptions;
+    protected pipes: Array<(data: any) => any | Promise<any>> = [];
+    protected schema: AbstractParserSchema;
+
+    constructor(
+        options?: ParserOptions | XMLParserOptions | ParserBufferOptions,
+    ) {
         super();
+        this.options = options;
+        this.schema = new this.options.schema();
     }
 
     /**
@@ -30,15 +42,15 @@ export abstract class AbstractParser extends EventEmitter {
      * @returns The transformed object or null if validation fails.
      */
     public async parser(rawData: any): Promise<any> {
-        const schema = new this.options.schema();
-
-        if (!schema) throw new Error('Schema is required to parse data.');
+        if (!this.schema) throw new Error('Schema is required to parse data.');
 
         const result: Record<string, any> = {};
 
         for (const key in rawData) rawData[key.toLowerCase()] = rawData[key];
 
-        for (const [fieldName, fieldOptions] of Object.entries(schema.field)) {
+        for (const [fieldName, fieldOptions] of Object.entries(
+            this.schema.field,
+        )) {
             const { to, validation, transform } = fieldOptions;
 
             let value = rawData[fieldName.toLowerCase()];
@@ -63,7 +75,7 @@ export abstract class AbstractParser extends EventEmitter {
             else result[fieldName] = value;
         }
 
-        if (this.options.model) {
+        if ('model' in this.options && this.options.model) {
             let newObject: any = plainToClass(this.options.model, result, {
                 excludeExtraneousValues: true,
                 exposeUnsetFields: false,
