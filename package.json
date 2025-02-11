@@ -1,6 +1,6 @@
 {
     "name": "@cmmv/normalizer",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "description": "Schema-based data normalization module for CMMV",
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
